@@ -1,0 +1,32 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+/* Variables */
+@import 'variables';
+
+/* Bootstrap */
+@import '~bootstrap/scss/bootstrap';
+
+.bg-status-1 {
+    background-color: #00f700;
+}
+
+.bg-status-2 {
+    background-color: #00bb2d;
+}
+
+.bg-status-3 {
+    background-color: #ffff00;
+}
+
+.bg-status-4 {
+    background-color: #ff0000;
+}
+
+.bg-status-5 {
+    background-color: #800080;
+}
+
+.bg-status-6 {
+    background-color: #c0c0c0;
+}
