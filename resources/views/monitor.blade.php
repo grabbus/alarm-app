@@ -3,9 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row row-cols-md-3">
-            @foreach($vehicles as $vehicle)
-                <livewire:monitor :vehicle="$vehicle"/>
-            @endforeach
+            <livewire:monitor :vehicle="$vehicles"/>
         </div>
     </div>
 @stop

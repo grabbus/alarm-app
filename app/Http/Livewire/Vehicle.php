@@ -6,15 +6,15 @@ use Livewire\Component;
 
 class Vehicle extends Component
 {
+    public $vehicle;
     public $callSign;
     public $type;
     public $typeLong;
     public $status;
 
-    protected $listeners = ['setStatus' => '$refresh'];
-
     public function mount($vehicle)
     {
+        $this->vehicle = $vehicle;
         $this->callSign = $vehicle->call_sign;
         $this->type = $vehicle->type;
         $this->typeLong = $vehicle->type_long;
@@ -23,7 +23,12 @@ class Vehicle extends Component
 
     public function setStatus($status)
     {
+        sleep(1);
         $this->status = $status;
+        $this->vehicle->status = $status;
+        $this->vehicle->save();
+
+        $this->emit('changed-status');
     }
 
     public function render()

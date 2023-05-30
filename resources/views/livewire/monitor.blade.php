@@ -23,5 +23,12 @@
                         {{ $type }}
                     </h6>
                 </div>
-        </div>
+            </div>
+    <script>
+        document.addEventListener('livewire:load', function () {
+            Livewire.on('test-status', () => {
+                console.log('status changed');
+            })
+        })
+    </script>
 </div>

@@ -21,5 +21,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/leitstelle', [\App\Http\Controllers\ControlCenterController::class, 'index'])->name('control-center.index');
 Route::get('/monitor', [\App\Http\Controllers\MonitorController::class, 'index'])->name('monitor');
 Route::get('/fahrzeuge/{vehicle}', [\App\Http\Controllers\VehicleController::class, 'show'])->name('show-vehicle');

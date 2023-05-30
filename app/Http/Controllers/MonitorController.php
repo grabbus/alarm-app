@@ -8,7 +8,7 @@ class MonitorController extends Controller
 {
     public function index()
     {
-        $vehicles = Vehicle::all();
+        $vehicles = Vehicle::all()->first();
 
         return view('monitor', [
             'vehicles' => $vehicles

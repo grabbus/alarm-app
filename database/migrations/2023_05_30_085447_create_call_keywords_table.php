@@ -11,20 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('calls', function (Blueprint $table) {
+        Schema::create('call_keywords', function (Blueprint $table) {
             $table->id();
-            $table->string('caller')->nullable();
-            $table->string('caller_phone_number')->nullable();
-            $table->string('street');
-            $table->string('house_number')->nullable();
-            $table->string('section');
-            $table->string('city');
-            $table->string('object')->nullable();
             $table->string('keyword');
             $table->string('category');
             $table->string('catchword');
-            $table->string('priority')->default('1');
-            $table->text('note')->nullable();
+            $table->string('requirement')->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('calls');
+        Schema::dropIfExists('call_keywords');
     }
 };
