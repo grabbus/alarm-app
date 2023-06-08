@@ -4,12 +4,12 @@ import path from 'path'
 
 export default defineConfig({
     server: {
-        hmr: {
-            host: 'localhost',
-        },
+        host: 'localhost',
     },
     plugins: [
         laravel([
+            'resources/sass/app.scss',
+            'resources/css/app.css',
             'resources/js/app.js',
         ]),
     ],
