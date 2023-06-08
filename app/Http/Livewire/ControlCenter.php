@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Jobs\DispatchResources;
 use App\Models\Call;
 use App\Models\CallKeyword;
 use Carbon\Carbon;
@@ -71,7 +72,7 @@ class ControlCenter extends Component
         $keyword = CallKeyword::query()
             ->find($this->selectedKeyword);
 
-        if(isset($this->date) && isset($this->time)) {
+        if (isset($this->date) && isset($this->time)) {
             $disposeDate = Carbon::parse($this->date . ' ' . $this->time);
         }
 
@@ -93,6 +94,12 @@ class ControlCenter extends Component
         ]);
 
         $call->save();
+
+        if (isset($disposeDate)) {
+            $now = Carbon::now();
+            $minutes = $disposeDate->diffInMinutes($now);
+            DispatchResources::dispatch($call)->delay($now->addMinutes($minutes));
+        }
 
         $this->addResources($this->selectedResources, $call);
         $this->resetProperties();
