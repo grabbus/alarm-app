@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('call_progresses', function (Blueprint $table) {
+        Schema::create('call_histories', function (Blueprint $table) {
             $table->id();
 
-            $table->text('note');
-            $table->foreignId('call_id')
-                ->references('id')
-                ->on('calls')
-                ->cascadeOnDelete();
+            $table->integer('call_id');
+            $table->text('message');
 
             $table->timestamps();
         });
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('call_progresses');
+        Schema::dropIfExists('call_histories');
     }
 };

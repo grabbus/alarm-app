@@ -9,7 +9,14 @@ class VehicleController extends Controller
     public function show(Vehicle $vehicle)
     {
         return view('vehicles.show', [
-            'vehicle' => $vehicle
+            'vehicle' => $vehicle,
+        ]);
+    }
+
+    public function dme(Vehicle $vehicle)
+    {
+        return view('vehicles.dme', [
+            'vehicle' => $vehicle,
         ]);
     }
 }

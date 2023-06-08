@@ -113,7 +113,7 @@ class ControlCenter extends Component
 
     public function resetProperties()
     {
-        $this->reset(
+        $this->reset([
             'caller',
             'callerPhoneNumber',
             'street',
@@ -125,7 +125,7 @@ class ControlCenter extends Component
             'selectedKeyword',
             'priority',
             'note',
-            'selectedResources'
-        );
+            'selectedResources',
+        ]);
     }
 }

@@ -31,6 +31,7 @@ class Alarm extends Component
         if($vehicles) {
             foreach($vehicles as $vehicle) {
                 $vehicle->status = 'C';
+                $vehicle->alarmed_at = now();
                 $vehicle->save();
 
                 DB::table('status_log')

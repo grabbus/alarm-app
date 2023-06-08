@@ -149,18 +149,7 @@
                     <h4>
                         Sprechwunsch
                     </h4>
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th scope="col">Zeit</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Rufname</th>
-                        </tr>
-                        </thead>
-                        <tbody class="table-group-divider">
-
-                        </tbody>
-                    </table>
+                    <livewire:speak-request :vehicles="$vehicles"/>
                 </div>
             </div>
         </div>

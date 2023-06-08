@@ -10,6 +10,8 @@ class Vehicle extends Model
 {
     use HasFactory;
 
+    protected $table = 'vehicles';
+
     public function calls(): BelongsToMany
     {
         return $this->belongsToMany(

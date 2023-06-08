@@ -21,6 +21,7 @@ class ControlCenterController extends Controller
     {
         return view('control-center.index', [
             'calls' => Call::withoutTrashed()->get(),
+            'vehicles' => Vehicle::all(),
             'closedCalls' => Call::onlyTrashed()->get(),
             'statusLogs' => StatusHistory::query()->simplePaginate(5),
         ]);

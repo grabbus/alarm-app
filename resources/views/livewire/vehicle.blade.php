@@ -1,4 +1,4 @@
-<div>
+<div wire:poll>
     <div class="card w-100
                 @if($status == 1)
                     bg-status-1
@@ -10,20 +10,46 @@
                     bg-status-4
                 @elseif($status == 5)
                     bg-status-5 text-white
+                @elseif($status == 6)
+                    bg-status-6
+                @elseif($status == 7)
+                    bg-status-7
+                @elseif($status == 8)
+                    bg-status-8
+                @elseif($status == 9)
+                    bg-status-9
+                @elseif($status == 0)
+                    bg-status-0
+                @elseif($status == 'C')
+                    bg-status-c blink-bg-red
+                @elseif($status == 'J')
+                    bg-status-j blink-bg-orange
                 @endif
-        mb-lg-4 mb-3">
-            <div class="card-body">
-                <h1 class="card-title d-flex justify-content-between align-items-center">
-                    {{ $callSign }}
-                    <div>
-                        {{ $status }}
-                    </div>
-                </h1>
-                <p class="card-text">
-                    {{ $typeLong }}
-                </p>
-            </div>
+        mb-lg-3 mb-3">
+        <div class="card-body">
+            <h1 class="card-title d-flex justify-content-between align-items-center">
+                {{ $callSign }}
+                <div>
+                    {{ $status }}
+                </div>
+            </h1>
+            <p class="card-text">
+                {{ $typeLong }}
+            </p>
+        </div>
     </div>
+
+    @if($status === 'C' || $status === 'J')
+        <div class="d-grid gap-2">
+            <button
+                id="acknowledge_call"
+                class="btn btn-outline-success mb-3"
+                wire:click="sendAcknowledgment"
+            >
+                Empfangsbestätigung
+            </button>
+        </div>
+    @endif
 
     <div class="row row-cols-3 align-items-center text-center mb-4">
         {{-- Status 1 --}}
@@ -123,33 +149,27 @@
     <script>
         setTimeout(function () {
             window.location.reload();
-        }, 10000);
-
-        window.addEventListener("load", (event) => {
-            let status = {!! json_encode($status) !!};
-            let alarmed = false;
-            dme = new Audio("{{ asset('/audio/dme.mp3') }}");
-
-            if (status === 'C') {
-                alarmed = true;
-                if (alarmed === true) {
-                    dme.play();
-                    alarmed = false;
-                }
-            }
-        });
+        }, 15000);
 
         document.addEventListener('livewire:load', function () {
             let status = new Audio("{{ asset('/audio/tetra_status.mp3') }}");
-
             Livewire.on('changed-status', () => {
                 status.play()
             })
-            Livewire.on('got-alarm', () => {
-                dme.play()
-            })
-        })
+        });
 
+        window.addEventListener("load", (event) => {
+            let status = {!! json_encode($status) !!};
+            let alarmedAt = new Date({!! json_encode($alarmedAt) !!});
+            let now = new Date();
+            var fms = new Audio("{{ asset('/audio/fms_alarm.mp3') }}");
 
+            if (
+                status === 'C'
+                && (now.getMinutes() === alarmedAt.getMinutes())
+            ) {
+                fms.play();
+            }
+        });
     </script>
 </div>

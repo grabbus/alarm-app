@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['vehicles' => \App\Models\Vehicle::all()]);
 });
 
 Auth::routes();
@@ -28,3 +28,4 @@ Route::delete('leitstelle/calls/{call}', [\App\Http\Controllers\ControlCenterCon
 Route::get('/leitstelle/download/{id}', [\App\Http\Controllers\ControlCenterController::class, 'createDispatch'])->name('control-center.download');
 Route::get('/monitor', [\App\Http\Controllers\MonitorController::class, 'index'])->name('monitor');
 Route::get('/fahrzeuge/{vehicle}', [\App\Http\Controllers\VehicleController::class, 'show'])->name('show-vehicle');
+Route::get('/dme/{vehicle}', [\App\Http\Controllers\VehicleController::class, 'dme'])->name('vehicle.dme');
