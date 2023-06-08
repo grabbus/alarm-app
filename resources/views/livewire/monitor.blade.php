@@ -25,10 +25,8 @@
                 </div>
             </div>
     <script>
-        document.addEventListener('livewire:load', function () {
-            Livewire.on('test-status', () => {
-                console.log('status changed');
-            })
-        })
+        setTimeout(function () {
+            window.location.reload();
+        }, 5000);
     </script>
 </div>

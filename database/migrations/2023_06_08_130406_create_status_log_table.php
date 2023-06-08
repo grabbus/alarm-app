@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vehicles', function (Blueprint $table) {
+        Schema::create('status_log', function (Blueprint $table) {
             $table->id();
-            $table->string('call_sign');
-            $table->string('type');
-            $table->string('type_long');
-            $table->string('status')->default('2');
-            $table->string('organization');
-            $table->dateTime('alarmed_at')->nullable();
+            $table->integer('vehicle_id');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vehicles');
+        Schema::dropIfExists('status_log');
     }
 };

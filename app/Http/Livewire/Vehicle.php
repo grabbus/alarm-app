@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class Vehicle extends Component
@@ -21,14 +22,24 @@ class Vehicle extends Component
         $this->status = $vehicle->status;
     }
 
+
     public function setStatus($status)
     {
-        sleep(1);
-        $this->status = $status;
-        $this->vehicle->status = $status;
-        $this->vehicle->save();
+        if ($status !== $this->status) {
+            sleep(1);
+            $this->status = $status;
+            $this->vehicle->status = $status;
+            $this->vehicle->save();
 
-        $this->emit('changed-status');
+            DB::table('status_log')
+                ->insert([
+                    'vehicle_id' => $this->vehicle->id,
+                    'status' => $status,
+                    'created_at' => now(),
+                ]);
+
+            $this->emit('changed-status');
+        }
     }
 
     public function render()

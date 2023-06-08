@@ -17,15 +17,18 @@ return new class extends Migration
             $table->string('caller_phone_number')->nullable();
             $table->string('street');
             $table->string('house_number')->nullable();
-            $table->string('section');
             $table->string('city');
+            $table->string('zip');
+            $table->string('section')->nullable();
             $table->string('object')->nullable();
             $table->string('keyword');
             $table->string('category');
             $table->string('catchword');
             $table->string('priority')->default('1');
             $table->text('note')->nullable();
+            $table->dateTime('dispose_at')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

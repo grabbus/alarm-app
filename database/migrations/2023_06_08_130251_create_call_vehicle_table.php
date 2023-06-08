@@ -11,14 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vehicles', function (Blueprint $table) {
+        Schema::create('calls_vehicles', function (Blueprint $table) {
             $table->id();
-            $table->string('call_sign');
-            $table->string('type');
-            $table->string('type_long');
-            $table->string('status')->default('2');
-            $table->string('organization');
-            $table->dateTime('alarmed_at')->nullable();
+
+            $table->foreignId('call_id')
+                ->references('id')
+                ->on('calls');
+            $table->foreignId('vehicle_id')
+                ->references('id')
+                ->on('vehicles')
+                ->cascadeOnDelete();
+
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vehicles');
+        Schema::dropIfExists('call_vehicle');
     }
 };

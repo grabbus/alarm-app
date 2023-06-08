@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vehicles', function (Blueprint $table) {
+        Schema::create('call_progresses', function (Blueprint $table) {
             $table->id();
-            $table->string('call_sign');
-            $table->string('type');
-            $table->string('type_long');
-            $table->string('status')->default('2');
-            $table->string('organization');
-            $table->dateTime('alarmed_at')->nullable();
+
+            $table->text('note');
+            $table->foreignId('call_id')
+                ->references('id')
+                ->on('calls')
+                ->cascadeOnDelete();
+
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vehicles');
+        Schema::dropIfExists('call_progresses');
     }
 };

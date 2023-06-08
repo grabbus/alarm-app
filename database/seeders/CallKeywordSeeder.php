@@ -12,26 +12,55 @@ class CallKeywordSeeder extends Seeder
      */
     public function run(): void
     {
-        /** Brand **/
-        /** B 1 **/
         DB::table('call_keywords')->insert([
-            'keyword' => 'B 1',
+            'keyword' => 'THL 1',
+            'category' => 'klein',
+            'catchword' => 'Straße reinigen',
+            'requirement' => 'FW EL - 1 Trupp',
+        ]);
+        DB::table('call_keywords')->insert([
+            'keyword' => 'B BMA',
+            'category' => 'Meldeanlage',
+            'catchword' => 'Brandmeldeanlage',
+            'requirement' => '500 l Löschwasser, 4 PA - 1 Staffel',
+        ]);
+        DB::table('call_keywords')->insert([
+            'keyword' => 'THL 3',
+            'category' => 'Rettung',
+            'catchword' => 'Waldunfall mit eingeklemmter Person',
+            'requirement' => '2 Rettungssätze, 500 l Löschwasser, FW-EL, Fachberater THW - 2 Staffeln',
+        ]);
+        DB::table('call_keywords')->insert([
+            'keyword' => 'B 4',
+            'category' => 'Gebäude hohe Personenzahl',
+            'catchword' => 'Kindergarten',
+            'requirement' => '3200 l Löschwasser, 12 PA, 1 Wärmebild-kamera, DL, FW-EL, Fachberater THW - 4 Gruppen',
+        ]);
+        DB::table('call_keywords')->insert([
+            'keyword' => 'B 2',
             'category' => 'im Freien',
-            'catchword' => 'Brandgeruch',
+            'catchword' => 'Gartenhütte, Schuppen',
+            'requirement' => '1000 l Löschwasser, 4 PA - 1 Staffel',
+        ]);
+        DB::table('call_keywords')->insert([
+            'keyword' => 'THL ERKUNDUNG',
+            'category' => 'klein',
+            'catchword' => 'Erkundung',
             'requirement' => '1 Trupp',
         ]);
         DB::table('call_keywords')->insert([
-            'keyword' => 'B 1',
-            'category' => 'im Freien',
-            'catchword' => 'Rauchentwicklung',
-            'requirement' => '1 Trupp',
+            'keyword' => 'B 2 PERSON',
+            'category' => 'Verkehr',
+            'catchword' => 'PKW (Person in Gefahr)',
+            'requirement' => '1000 l Löschwasser, 4 PA - 1 Gruppe',
         ]);
         DB::table('call_keywords')->insert([
-            'keyword' => 'B 1',
-            'category' => 'im Freien',
-            'catchword' => 'Freifläche klein (< 100 m²)',
-            'requirement' => '1 Trupp',
+            'keyword' => 'THL 1',
+            'category' => 'Rettung',
+            'catchword' => 'Personensuche',
+            'requirement' => 'FW-EL - 1 Trupp',
         ]);
+        /** Sonstige Einsätze */
         DB::table('call_keywords')->insert([
             'keyword' => 'B 1',
             'category' => 'im Freien',
@@ -41,7 +70,7 @@ class CallKeywordSeeder extends Seeder
         DB::table('call_keywords')->insert([
             'keyword' => 'B 1',
             'category' => 'im Freien',
-            'catchword' => 'Kleinbrand',
+            'catchword' => 'Nachschau',
             'requirement' => '1 Trupp',
         ]);
         DB::table('call_keywords')->insert([
@@ -51,113 +80,28 @@ class CallKeywordSeeder extends Seeder
             'requirement' => '1 Trupp',
         ]);
         DB::table('call_keywords')->insert([
-            'keyword' => 'B 1',
-            'category' => 'Verkehr',
-            'catchword' => 'Motorrad',
-            'requirement' => '1 Trupp',
-        ]);
-        /** B 2 **/
-        DB::table('call_keywords')->insert([
-            'keyword' => 'B 2',
-            'category' => 'im Freien',
-            'catchword' => 'Wald, klein (< 1000 m²)',
-            'requirement' => '1 Staffel, 1000 l Löschwasser, 4 PA',
+            'keyword' => 'THL 1',
+            'category' => 'klein',
+            'catchword' => 'Baum auf Straße',
+            'requirement' => 'FW-EL - 1 Trupp',
         ]);
         DB::table('call_keywords')->insert([
-            'keyword' => 'B 2',
-            'category' => 'im Freien',
-            'catchword' => 'Freifläche groß (> 100 m²)',
-            'requirement' => '1 Staffel, 1000 l Löschwasser, 4 PA',
+            'keyword' => 'THL 1',
+            'category' => 'VU',
+            'catchword' => 'mit PKW',
+            'requirement' => 'FW-EL - 1 Trupp',
         ]);
         DB::table('call_keywords')->insert([
-            'keyword' => 'B 2',
-            'category' => 'im Freien',
-            'catchword' => 'Bahndamm',
-            'requirement' => '1 Staffel, 1000 l Löschwasser, 4 PA',
+            'keyword' => 'THL 1',
+            'category' => 'VU',
+            'catchword' => 'mit Motorrad',
+            'requirement' => 'FW-EL - 1 Trupp',
         ]);
         DB::table('call_keywords')->insert([
-            'keyword' => 'B 2',
-            'category' => 'im Freien',
-            'catchword' => 'Bau-, Wohncontainer',
-            'requirement' => '1 Staffel, 1000 l Löschwasser, 4 PA',
-        ]);
-        DB::table('call_keywords')->insert([
-            'keyword' => 'B 2',
-            'category' => 'im Freien',
-            'catchword' => 'Gartenhütte, Schuppen',
-            'requirement' => '1 Staffel, 1000 l Löschwasser, 4 PA',
-        ]);
-        DB::table('call_keywords')->insert([
-            'keyword' => 'B 2',
-            'category' => 'im Freien',
-            'catchword' => 'Bahndamm',
-            'requirement' => '1 Staffel, 1000 l Löschwasser, 4 PA',
-        ]);
-        DB::table('call_keywords')->insert([
-            'keyword' => 'B 2',
-            'category' => 'im Gebäude',
-            'catchword' => 'Kamin',
-            'requirement' => '1 Staffel, 1000 l Löschwasser, 4 PA',
-        ]);
-        DB::table('call_keywords')->insert([
-            'keyword' => 'B 2',
-            'category' => 'im Gebäude',
-            'catchword' => 'überhitzter Ofen / Ölofen',
-            'requirement' => '1 Staffel, 1000 l Löschwasser, 4 PA',
-        ]);
-        DB::table('call_keywords')->insert([
-            'keyword' => 'B 2',
-            'category' => 'Verkehr',
-            'catchword' => 'PKW auf BAB',
-            'requirement' => '1 Staffel, 1000 l Löschwasser, 4 PA',
-        ]);
-        DB::table('call_keywords')->insert([
-            'keyword' => 'B 2',
-            'category' => 'Verkehr',
-            'catchword' => 'LKW / Bus innerorts',
-            'requirement' => '1 Staffel, 1000 l Löschwasser, 4 PA',
-        ]);
-        DB::table('call_keywords')->insert([
-            'keyword' => 'B 2',
-            'category' => 'Alarmstufenerhöhung',
-            'catchword' => 'auf B 2',
-            'requirement' => '1 Staffel, 1000 l Löschwasser, 4 PA',
-        ]);
-        DB::table('call_keywords')->insert([
-            'keyword' => 'B 2 PERSON',
-            'category' => 'im Freien',
-            'catchword' => 'Bau-, Wohncontainer (Person in Gefahr)',
-            'requirement' => '1 Gruppe, 1000 l Löschwasser, 4 PA',
-        ]);
-        DB::table('call_keywords')->insert([
-            'keyword' => 'B 2 PERSON',
-            'category' => 'im Freien',
-            'catchword' => 'Gartenhütte / Schuppen (Person in Gefahr',
-            'requirement' => '1 Gruppe, 1000 l Löschwasser, 4 PA',
-        ]);
-        DB::table('call_keywords')->insert([
-            'keyword' => 'B 2 PERSON',
-            'category' => 'im Freien',
-            'catchword' => 'Person',
-            'requirement' => '1 Gruppe, 1000 l Löschwasser, 4 PA',
-        ]);
-        DB::table('call_keywords')->insert([
-            'keyword' => 'B 2 PERSON',
-            'category' => 'Verkehr',
-            'catchword' => 'PKW (Person in Gefahr)',
-            'requirement' => '1 Gruppe, 1000 l Löschwasser, 4 PA',
-        ]);
-        DB::table('call_keywords')->insert([
-            'keyword' => 'B 2 PERSON',
-            'category' => 'Verkehr',
-            'catchword' => 'PKW auf BAB (Person in Gefahr)',
-            'requirement' => '1 Gruppe, 1000 l Löschwasser, 4 PA',
-        ]);
-        DB::table('call_keywords')->insert([
-            'keyword' => 'B 2 PERSON',
-            'category' => 'Alarmstufenerhöhung',
-            'catchword' => 'auf B 2 Person',
-            'requirement' => '1 Gruppe, 1000 l Löschwasser, 4 PA',
+            'keyword' => 'THL 1',
+            'category' => 'klein',
+            'catchword' => 'Verkehrslenkung',
+            'requirement' => 'FW-EL - 1 Trupp',
         ]);
     }
 }

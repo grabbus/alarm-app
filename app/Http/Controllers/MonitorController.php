@@ -8,10 +8,17 @@ class MonitorController extends Controller
 {
     public function index()
     {
-        $vehicles = Vehicle::all()->first();
+        $vehiclesFD = Vehicle::query()
+            ->where('organization', 'FW')
+            ->get();
+
+        $vehiclesEMS = Vehicle::query()
+            ->where('organization', 'RD')
+            ->get();
 
         return view('monitor', [
-            'vehicles' => $vehicles
+            'vehiclesFD' => $vehiclesFD,
+            'vehiclesEMS' => $vehiclesEMS,
         ]);
     }
 }
