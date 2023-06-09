@@ -4,7 +4,7 @@ import path from 'path'
 
 export default defineConfig({
     server: {
-        host: '116.203.209.24',
+        host: 'localhost',
         https: false,
         cors: false,
     },
