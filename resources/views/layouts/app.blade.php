@@ -14,7 +14,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/js/app.css', 'resources/js/app.js', 'resources/sass/app.scss'])
+    @vite(['public/build/app-79cb3e1e.css', 'public/build/app-437b0da7.css', 'public/build/app-bc11098e.js'])
     @livewireStyles
 </head>
 <body>
