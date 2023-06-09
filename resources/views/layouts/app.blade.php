@@ -12,13 +12,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link href="{{ asset('resources/css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('resources/sass/app.scss') }}" rel="stylesheet">
-    <link href="{{ asset('build/assets/app-437b0da7.css') }}" rel="stylesheet">
-    <script src="{{ asset('build/assets/app-b6485dff.js') }}" type="javascript"></script>
-
     <!-- Scripts -->
-    {{--    @vite(['resources/css/app.css', 'resources/js/app.css', 'resources/js/app.js'])--}}
+    @vite(['resources/css/app.css', 'resources/js/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
 <body>
