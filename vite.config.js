@@ -3,6 +3,11 @@ import laravel from 'laravel-vite-plugin';
 import path from 'path'
 
 export default defineConfig({
+    server: {
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
+    },
     plugins: [
         laravel({
             input: [
