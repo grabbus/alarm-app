@@ -4,10 +4,12 @@ import path from 'path'
 
 export default defineConfig({
     server: {
+        host: 'localhost',
+        https: false,
+        cors: false,
         hmr: {
-            cors: false,
             host: 'localhost',
-        },
+        }
     },
     plugins: [
         laravel({
