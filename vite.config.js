@@ -5,7 +5,7 @@ import path from 'path'
 export default defineConfig({
     server: {
         hmr: {
-            host: 'michaelgrabinger.com',
+            host: '127.0.0.1',
         },
     },
     plugins: [
