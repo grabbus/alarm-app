@@ -5,6 +5,7 @@ import path from 'path'
 export default defineConfig({
     server: {
         hmr: {
+            cors: false,
             host: 'localhost',
         },
     },
