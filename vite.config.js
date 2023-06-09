@@ -4,12 +4,14 @@ import path from 'path'
 
 export default defineConfig({
     server: {
-        host: 'localhost',
-        https: false,
+        host: '116.203.209.24',
+        https: true,
         cors: false,
         server: {
             hmr: {
-                host: 'localhost',
+                host: '116.203.209.24',
+                https: true,
+                cors: false,
             },
         },
     },
