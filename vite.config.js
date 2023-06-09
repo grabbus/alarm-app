@@ -4,11 +4,11 @@ import path from 'path'
 
 export default defineConfig({
     server: {
-        host: 'localhost',
+        host: '116.203.209.24',
         https: false,
         cors: false,
         hmr: {
-            host: 'localhost',
+            host: '116.203.209.24',
         }
     },
     plugins: [
