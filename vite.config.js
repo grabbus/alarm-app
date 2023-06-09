@@ -2,8 +2,12 @@ import {defineConfig} from 'vite';
 import laravel from 'laravel-vite-plugin';
 import path from 'path'
 
+const host = 'michaelgrabinger.com';
+
 export default defineConfig({
     server: {
+        host,
+        hmr: {host},
         headers: {
             'Access-Control-Allow-Origin': '*',
         },
