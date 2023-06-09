@@ -1,4 +1,5 @@
 import loadash from 'lodash'
+
 import * as Popper from '@popperjs/core'
 import 'bootstrap'
 
