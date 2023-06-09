@@ -59,13 +59,6 @@ class ControlCenterController extends Controller
             }
         }
 
-        $calls = Call::withTrashed()->get();
-        if ($calls) {
-            foreach ($calls as $call) {
-                $call->forceDelete();
-            }
-        }
-
         StatusHistory::query()
             ->truncate();
 
@@ -74,6 +67,13 @@ class ControlCenterController extends Controller
 
         DB::table('calls_vehicles')
             ->truncate();
+
+        $calls = Call::withTrashed()->get();
+        if ($calls) {
+            foreach ($calls as $call) {
+                $call->forceDelete();
+            }
+        }
 
         return redirect()->to('/leitstelle');
     }
