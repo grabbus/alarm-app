@@ -6,12 +6,12 @@ export default defineConfig({
     server: {
         host: 'localhost',
         https: true,
-        cors: false,
+        cors: true,
         server: {
             hmr: {
                 host: 'localhost',
                 https: true,
-                cors: false,
+                cors: true,
             },
         },
     },
