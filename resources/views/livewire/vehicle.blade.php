@@ -149,7 +149,7 @@
     <script>
         setTimeout(function () {
             window.location.reload();
-        }, 15000);
+        }, 12000);
 
         document.addEventListener('livewire:load', function () {
             let status = new Audio("{{ asset('/audio/tetra_status.mp3') }}");

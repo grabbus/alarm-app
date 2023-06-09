@@ -2,11 +2,18 @@
 
 @section('content')
     <div class="container">
-        <div class="row mb-4">
+        <div class="d-flex gap-3">
             <a href="{{ route('control-center.create') }}"
-               class="btn btn-success">
+               class="btn btn-success flex-fill">
                 Neuen Einsatz erfassen
             </a>
+            <button
+                type="button"
+                class="btn btn-danger flex-fill"
+                onclick='playSound("{{ asset('/audio/gong.mp3') }}");'
+            >
+                Wachgong auslösen
+            </button>
         </div>
 
         <hr class="my-4"/>
@@ -154,4 +161,10 @@
             </div>
         </div>
     </div>
+    <script>
+        function playSound(url) {
+            const audio = new Audio(url);
+            audio.play();
+        }
+    </script>
 @stop

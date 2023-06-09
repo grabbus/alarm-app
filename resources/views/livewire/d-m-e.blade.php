@@ -37,7 +37,7 @@
     <script>
         setTimeout(function () {
             window.location.reload();
-        }, 15000);
+        }, 12000);
         let dme = new Audio("{{ asset('/audio/dme.mp3') }}");
 
         window.addEventListener("load", (event) => {

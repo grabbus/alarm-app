@@ -39,4 +39,9 @@
             </h6>
         </div>
     </div>
+    <script>
+        setTimeout(function () {
+            window.location.reload();
+        }, 12000);
+    </script>
 </div>
