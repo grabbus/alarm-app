@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Call;
+use App\Models\CallHistory;
 use App\Models\CallKeyword;
 use App\Models\StatusHistory;
 use App\Models\Vehicle;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
 
 class ControlCenterController extends Controller
 {
@@ -41,6 +43,37 @@ class ControlCenterController extends Controller
     public function delete(Call $call)
     {
         $call->delete();
+
+        return redirect()->to('/leitstelle');
+    }
+
+    public function resetSystem()
+    {
+        $vehicles = Vehicle::all();
+        if ($vehicles) {
+            foreach ($vehicles as $vehicle) {
+                $vehicle->status = 2;
+                $vehicle->alarmed_at = null;
+                $vehicle->updated_at = null;
+                $vehicle->save();
+            }
+        }
+
+        $calls = Call::withTrashed()->get();
+        if ($calls) {
+            foreach ($calls as $call) {
+                $call->forceDelete();
+            }
+        }
+
+        StatusHistory::query()
+            ->truncate();
+
+        CallHistory::query()
+            ->truncate();
+
+        DB::table('calls_vehicles')
+            ->truncate();
 
         return redirect()->to('/leitstelle');
     }

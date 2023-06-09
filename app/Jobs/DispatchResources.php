@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\Call;
+use App\Models\CallHistory;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -30,6 +31,13 @@ class DispatchResources implements ShouldQueue
     public function handle(): void
     {
         $vehicles = $this->call->vehicles;
+
+        $log = new CallHistory([
+            'call_id' => $this->call->id,
+            'message' => 'Einsatzmittel alarmiert.',
+            'created_at' => now(),
+        ]);
+        $log->save();
 
         $this->alertResources($vehicles);
     }

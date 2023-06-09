@@ -160,6 +160,14 @@
                 </div>
             </div>
         </div>
+
+        <div>
+            <a class="btn btn-sm btn-outline-danger"
+               href="{{ route('control-center.reset') }}">
+                System zurücksetzen
+            </a>
+        </div>
+
     </div>
     <script>
         function playSound(url) {
