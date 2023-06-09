@@ -7,9 +7,6 @@ export default defineConfig({
         host: '116.203.209.24',
         https: false,
         cors: false,
-        hmr: {
-            host: '116.203.209.24',
-        }
     },
     plugins: [
         laravel({
