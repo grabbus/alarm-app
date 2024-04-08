@@ -43,5 +43,8 @@
         setTimeout(function () {
             window.location.reload();
         }, 12000);
+        //let gong = new Audio("{{ asset('/audio/gong.mp3') }}");
+
+
     </script>
 </div>

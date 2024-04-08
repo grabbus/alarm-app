@@ -31,7 +31,6 @@ class DispatchResources implements ShouldQueue
     public function handle(): void
     {
         $vehicles = $this->call->vehicles;
-
         $log = new CallHistory([
             'call_id' => $this->call->id,
             'message' => 'Einsatzmittel alarmiert.',

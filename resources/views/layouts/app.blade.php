@@ -17,6 +17,7 @@
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
     @livewireStyles
+    @livewireScripts
 </head>
 <body>
 <div id="app">
@@ -80,6 +81,6 @@
             @yield('content')
         </main>
 </div>
-@livewireScripts
+
 </body>
 </html>

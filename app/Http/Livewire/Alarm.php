@@ -28,7 +28,7 @@ class Alarm extends Component
 
     public function alertVehicles($vehicles)
     {
-        if($vehicles) {
+        if ($vehicles) {
             DispatchResources::dispatch($this->call);
         }
     }

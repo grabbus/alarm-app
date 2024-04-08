@@ -20,4 +20,15 @@
             @endforeach
         </div>
     </div>
+    <script>
+        window.addEventListener('test', function () {
+            alert('Name updated to: ');
+            console.log('window')
+        });
+
+        Livewire.on('test', () => {
+            alert('test');
+            console.log('livewire')
+        });
+    </script>
 @stop
