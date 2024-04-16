@@ -7,6 +7,10 @@
                class="btn btn-success flex-fill">
                 Neuen Einsatz erfassen
             </a>
+            <a href="{{ route('control-center.all-status-two') }}"
+               class="btn btn-info flex-fill">
+                Alle Fahrzeuge Status 2
+            </a>
             <button
                 type="button"
                 class="btn btn-danger flex-fill"

@@ -47,6 +47,18 @@ class ControlCenterController extends Controller
         return redirect()->to('/leitstelle');
     }
 
+    public function setAllToStatusTwo()
+    {
+        $vehicles = Vehicle::all();
+        foreach($vehicles as $vehicle) {
+            $vehicle->status = '2';
+            $vehicle->alarmed_at = null;
+            $vehicle->save();
+        }
+
+        return redirect()->to('/leitstelle');
+    }
+
     public function resetSystem()
     {
         $vehicles = Vehicle::all();

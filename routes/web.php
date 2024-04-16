@@ -25,9 +25,16 @@ Route::get('/monitor', [\App\Http\Controllers\MonitorController::class, 'index']
 Route::get('/fahrzeuge/{vehicle}', [\App\Http\Controllers\VehicleController::class, 'show'])->name('show-vehicle');
 Route::get('/dme/{vehicle}', [\App\Http\Controllers\VehicleController::class, 'dme'])->name('vehicle.dme');
 
-Route::get('/leitstelle', [\App\Http\Controllers\ControlCenterController::class, 'index'])->name('control-center.index')->middleware('auth');
+Route::get('/leitstelle', [\App\Http\Controllers\ControlCenterController::class, 'index'])
+    ->name('control-center.index')
+    ->middleware('auth');
 Route::get('/leitstelle/calls/{call}', [\App\Http\Controllers\ControlCenterController::class, 'show'])->name('control-center.show')->middleware('auth');
 Route::get('/leitstelle/create', [\App\Http\Controllers\ControlCenterController::class, 'create'])->name('control-center.create')->middleware('auth');
 Route::delete('leitstelle/calls/{call}', [\App\Http\Controllers\ControlCenterController::class, 'delete'])->name('control-center.delete')->middleware('auth');
 Route::get('/leitstelle/download/{id}', [\App\Http\Controllers\ControlCenterController::class, 'createDispatch'])->name('control-center.download')->middleware('auth');
-Route::get('/leitstelle/reset', [\App\Http\Controllers\ControlCenterController::class, 'resetSystem'])->name('control-center.reset')->middleware('auth');
+Route::get('/leitstelle/all-status-two', [\App\Http\Controllers\ControlCenterController::class, 'setAllToStatusTwo'])
+    ->name('control-center.all-status-two')
+    ->middleware('auth');
+Route::get('/leitstelle/reset', [\App\Http\Controllers\ControlCenterController::class, 'resetSystem'])
+    ->name('control-center.reset')
+    ->middleware('auth');
