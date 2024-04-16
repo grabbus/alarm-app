@@ -22,25 +22,26 @@ class AlarmMonitor extends Component
     {
         $this->vehicles = $vehicles;
         $this->calls = $calls;
-        $this->currentCall = $this->checkIfCallIsOngoing();
+        $this->checkIfCallIsOngoing();
     }
     public function render()
     {
         return view('livewire.alarm-monitor');
     }
 
-    public function checkIfCallIsOngoing()
+    public function checkIfCallIsOngoing(): void
     {
         $ongoingCall = null;
         $calls = $this->calls;
         foreach($calls as $call) {
             if(
-                //$call->alarmed_at >= Carbon::now()->subMinutes(5)->toDateTimeString()
-                $call->alarmed_at <= Carbon::now()->addMinutes(5)->toDateTimeString()
+                $call->alarmed_at >= Carbon::now()->subMinutes(5)->toDateTimeString()
+                && $call->alarmed_at <= Carbon::now()->addMinutes(5)->toDateTimeString()
+                && !$call->is_closed
             ) {
                 $ongoingCall = $call;
             }
         }
-        return $ongoingCall;
+        $this->currentCall = $ongoingCall;
     }
 }

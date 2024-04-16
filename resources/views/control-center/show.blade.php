@@ -2,10 +2,18 @@
 
 @section('content')
     <div class="container">
-        <a href="{{ route('control-center.index') }}"
-           class="btn btn-primary mb-3">
-            Zurück
-        </a>
+        <div class="d-flex justify-content-between">
+            <a href="{{ route('control-center.index') }}"
+               class="btn btn-primary mb-3">
+                Zurück
+            </a>
+
+            <a href="{{ route('control-center.close-call', ['call' => $call]) }}"
+                class="btn btn-danger mb-3 @if($call->is_closed) disabled @endif" @if($call->is_closed) disabled @endif>
+                Einsatz abschließen
+            </a>
+        </div>
+
 
         <h3 class="mb-3">
             {{ $call->keyword }} -
@@ -27,6 +35,7 @@
                                class="form-control"
                                value="{{ $call->caller }}"
                                readonly
+                               @if($call->is_closed) disabled @endif
                         >
                     </div>
                     <div class="col">
@@ -38,6 +47,7 @@
                                class="form-control"
                                value="{{ $call->caller_phone_number }}"
                                readonly
+                               @if($call->is_closed) disabled @endif
                         >
                     </div>
                 </div>
@@ -50,6 +60,7 @@
                                class="form-control"
                                value="{{ $call->street }}"
                                readonly
+                               @if($call->is_closed) disabled @endif
                         >
                     </div>
                     <div class="col-2">
@@ -60,6 +71,7 @@
                                class="form-control"
                                value="{{ $call->house_number }}"
                                readonly
+                               @if($call->is_closed) disabled @endif
                         >
                     </div>
                 </div>
@@ -72,6 +84,7 @@
                                class="form-control"
                                value="{{ $call->city }}"
                                readonly
+                               @if($call->is_closed) disabled @endif
                         >
                     </div>
                     <div class="col-2">
@@ -82,6 +95,7 @@
                                class="form-control"
                                value="{{ $call->zip }}"
                                readonly
+                               @if($call->is_closed) disabled @endif
                         >
                     </div>
                 </div>
@@ -94,6 +108,7 @@
                                class="form-control"
                                value="{{ $call->section }}"
                                readonly
+                               @if($call->is_closed) disabled @endif
                         >
                     </div>
                     <div class="col">
@@ -104,6 +119,7 @@
                                class="form-control"
                                value="{{ $call->object }}"
                                readonly
+                               @if($call->is_closed) disabled @endif
                         >
                     </div>
                 </div>

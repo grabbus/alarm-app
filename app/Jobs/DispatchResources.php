@@ -39,10 +39,11 @@ class DispatchResources implements ShouldQueue
         ]);
         $log->save();
 
+        $this->alertMonitor();
         $this->alertResources($vehicles);
     }
 
-    private function alertResources($vehicles)
+    private function alertResources($vehicles): void
     {
         if($vehicles) {
             foreach($vehicles as $vehicle) {
@@ -58,5 +59,14 @@ class DispatchResources implements ShouldQueue
                     ]);
             }
         }
+    }
+
+    private function alertMonitor(): void
+    {
+        $this->call->update([
+            'alarmed_at' => now()
+        ]);
+
+
     }
 }

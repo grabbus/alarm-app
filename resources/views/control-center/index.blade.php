@@ -71,7 +71,7 @@
                                     <form action="{{ route('control-center.delete', [$call]) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-warning btn-sm">
+                                        <button class="btn btn-warning btn-sm @if($call->is_closed) disabled @endif" @if($call->is_closed) disabled @endif>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                  fill="currentColor" class="bi bi-archive" viewBox="0 0 16 16">
                                                 <path

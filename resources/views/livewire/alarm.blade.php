@@ -1,7 +1,8 @@
 <div>
     <button
+        @if($call->is_closed) disabled @endif
         id="alarm"
-        class="btn btn-danger btn-sm me-2"
+        class="btn btn-danger btn-sm me-2 @if($call->is_closed) disabled @endif"
         type="button"
         wire:click="alarm({{ $call }})"
         @isset($call->dispose_at) disabled @endisset

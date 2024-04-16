@@ -25,7 +25,9 @@ class ControlCenterController extends Controller
             'calls' => Call::withoutTrashed()->get(),
             'vehicles' => Vehicle::all(),
             'closedCalls' => Call::onlyTrashed()->get(),
-            'statusLogs' => StatusHistory::query()->simplePaginate(5),
+            'statusLogs' => StatusHistory::query()
+                ->orderByDesc('created_at')
+                ->simplePaginate(5),
         ]);
     }
 
@@ -47,19 +49,33 @@ class ControlCenterController extends Controller
         return redirect()->to('/leitstelle');
     }
 
-    public function setAllToStatusTwo()
+    public function closeCall(Call $call): \Illuminate\Http\RedirectResponse
+    {
+        $call->update(['is_closed' => true]);
+
+        return redirect()->to('/leitstelle');
+    }
+
+    public function setAllToStatusTwo(): \Illuminate\Http\RedirectResponse
     {
         $vehicles = Vehicle::all();
         foreach($vehicles as $vehicle) {
             $vehicle->status = '2';
             $vehicle->alarmed_at = null;
             $vehicle->save();
+
+            DB::table('status_log')
+                ->insert([
+                    'vehicle_id' => $vehicle->id,
+                    'status' => 2,
+                    'created_at' => now(),
+                ]);
         }
 
         return redirect()->to('/leitstelle');
     }
 
-    public function resetSystem()
+    public function resetSystem(): \Illuminate\Http\RedirectResponse
     {
         $vehicles = Vehicle::all();
         if ($vehicles) {
@@ -90,7 +106,7 @@ class ControlCenterController extends Controller
         return redirect()->to('/leitstelle');
     }
 
-    public function createDispatch($id)
+    public function createDispatch($id): \Illuminate\Http\Response
     {
         $call = Call::query()
             ->find($id);

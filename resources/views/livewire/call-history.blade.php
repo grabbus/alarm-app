@@ -22,12 +22,13 @@
             id="message"
             name="message"
             placeholder="Einsatzdokumentation"
-            class="form-control"></textarea>
+            class="form-control @if($call->is_closed) disabled @endif" @if($call->is_closed) disabled @endif></textarea>
         @error('message') <span class="link-danger">{{ $message }}</span> @enderror
         <button
         id="addMessage"
-        class="btn btn-outline-success"
+        class="btn btn-outline-success @if($call->is_closed) disabled @endif"
         type="button"
+        @if($call->is_closed) disabled @endif
         wire:click="addMessage"
         >
             Hinzufügen

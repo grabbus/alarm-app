@@ -35,6 +35,9 @@ Route::get('/leitstelle/calls/{call}', [\App\Http\Controllers\ControlCenterContr
 Route::get('/leitstelle/create', [\App\Http\Controllers\ControlCenterController::class, 'create'])->name('control-center.create')->middleware('auth');
 Route::delete('leitstelle/calls/{call}', [\App\Http\Controllers\ControlCenterController::class, 'delete'])->name('control-center.delete')->middleware('auth');
 Route::get('/leitstelle/download/{id}', [\App\Http\Controllers\ControlCenterController::class, 'createDispatch'])->name('control-center.download')->middleware('auth');
+Route::get('/leitstelle/calls/{call}/close', [\App\Http\Controllers\ControlCenterController::class, 'closeCall'])
+    ->name('control-center.close-call')
+    ->middleware('auth');
 Route::get('/leitstelle/all-status-two', [\App\Http\Controllers\ControlCenterController::class, 'setAllToStatusTwo'])
     ->name('control-center.all-status-two')
     ->middleware('auth');

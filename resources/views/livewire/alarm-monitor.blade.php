@@ -1,5 +1,5 @@
-<div wire:poll>
-    <div class="container h-100 d-flex flex-column" style="height: 100%;">
+<div>
+    <div class="container h-100 d-flex flex-column" style="height: 100%;" wire:poll.15000ms="checkIfCallIsOngoing">
         @if($currentCall)
         {{-- Stichwort --}}
         <div class="row flex-grow-1 align-items-start">
@@ -62,7 +62,7 @@
             @endif
         </div>
         @else
-
+            Fahrzeugübersicht WIP
         @endif
     </div>
 </div>
