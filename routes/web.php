@@ -21,7 +21,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/monitor', [\App\Http\Controllers\MonitorController::class, 'index'])->name('monitor');
+Route::get('/monitor', [\App\Http\Controllers\MonitorController::class, 'index'])
+    ->name('monitor');
+Route::get('/alarm-monitor', [\App\Http\Controllers\MonitorController::class, 'alarmMonitor'])
+    ->name('alarm-monitor');
 Route::get('/fahrzeuge/{vehicle}', [\App\Http\Controllers\VehicleController::class, 'show'])->name('show-vehicle');
 Route::get('/dme/{vehicle}', [\App\Http\Controllers\VehicleController::class, 'dme'])->name('vehicle.dme');
 

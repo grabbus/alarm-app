@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Call;
 use App\Models\Vehicle;
 
 class MonitorController extends Controller
@@ -20,5 +21,15 @@ class MonitorController extends Controller
             'vehiclesFD' => $vehiclesFD,
             'vehiclesEMS' => $vehiclesEMS,
         ]);
+    }
+
+    public function alarmMonitor()
+    {
+        $vehicles = Vehicle::all();
+        $calls = Call::all();
+
+        return view('alarm-monitor',
+            ['vehicles' => $vehicles
+            , 'calls' => $calls]);
     }
 }
