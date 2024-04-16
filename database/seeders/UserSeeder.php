@@ -14,10 +14,16 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
-            'name' => 'Leitstelle',
-            'email' => 'leitstelle@ils.de',
+            'name' => 'Feuerwehr Ezelsdorf',
+            'email' => 'ezelsdorf@els.de',
             'email_verified_at' => now(),
-            'password' => Hash::make('bf-tag-2023')
+            'password' => Hash::make('131-bf-tag-2024')
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Feuerwehr Burgweinting',
+            'email' => 'burgweinting@els.de',
+            'email_verified_at' => now(),
+            'password' => Hash::make('')
         ]);
     }
 }

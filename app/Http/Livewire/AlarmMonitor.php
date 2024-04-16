@@ -14,10 +14,6 @@ class AlarmMonitor extends Component
     public $currentCall = null;
 
     public $alarmedVehicles = null;
-
-    public bool $alarm = false;
-
-    protected $listeners = ['refreshComponent' => '$refresh'];
     public function mount($vehicles, $calls)
     {
         $this->vehicles = $vehicles;
@@ -40,8 +36,14 @@ class AlarmMonitor extends Component
                 && !$call->is_closed
             ) {
                 $ongoingCall = $call;
+            } else {
+                $this->currentCall = null;
             }
         }
-        $this->currentCall = $ongoingCall;
+
+        if($ongoingCall) {
+            $this->dispatchBrowserEvent('newCall');
+            $this->currentCall = $ongoingCall;
+        }
     }
 }

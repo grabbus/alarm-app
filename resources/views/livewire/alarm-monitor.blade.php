@@ -64,5 +64,20 @@
         @else
             Fahrzeugübersicht WIP
         @endif
+
     </div>
+    @if($currentCall)
+        <script>
+            document.addEventListener('livewire:load', function () {
+                let played = false;
+                window.addEventListener('newCall', event => {
+                    let gong = new Audio("{{ asset('/audio/gong.mp3') }}");
+                    if(played === false) {
+                        gong.play();
+                    }
+                    played = true;
+                })
+            });
+        </script>
+    @endif
 </div>
