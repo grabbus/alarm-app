@@ -27,11 +27,8 @@ class MonitorController extends Controller
     {
         $vehicles = Vehicle::all();
         $calls = Call::all();
-        $call = Call::first();
         
         return view('alarm-monitor',
-            ['vehicles' => $vehicles
-            , 'calls' => $calls, 'call' => $call
-                    ]);
+            ['vehicles' => $vehicles, 'calls' => $calls,]);
     }
 }
