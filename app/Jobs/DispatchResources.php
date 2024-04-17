@@ -39,7 +39,8 @@ class DispatchResources implements ShouldQueue
         ]);
         $log->save();
 
-        $this->alertMonitor();
+        $this->call->alarmed_at = now();
+        $this->call->save();
         $this->alertResources($vehicles);
     }
 
