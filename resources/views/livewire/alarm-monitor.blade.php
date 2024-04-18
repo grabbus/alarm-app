@@ -91,7 +91,7 @@
                     <div class="row flex-grow-1 justify-content-center align-items-center border">
                         <div class="text-white text-center" wire:poll.1s>
                             <h1 class="display-4">
-                                {{ date('H:m:s') }}
+                                {{ date('H:i:s') }}
                             </h1>
                             <h1>
                                 {{ date('D, d M Y') }}
