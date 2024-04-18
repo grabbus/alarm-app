@@ -102,8 +102,20 @@
             </div>
 
             <div class="col border">
-                <div class="row border p-4">
-                    <div class="text-white text-center">
+                <div class="row border p-4"
+                     @if(Str::contains("$currentCall->keyword", 'THL'))
+                         style="background-color: #0066FF"
+                     @elseif(Str::contains("$currentCall->keyword", 'B '))
+                         style="background-color: #FF0000"
+                     @elseif(Str::contains("$currentCall->keyword", 'RD'))
+                         style="background-color: #FFA2A2"
+                     @elseif(Str::contains("$currentCall->keyword", 'INFO'))
+                         style="background-color: gray"
+                     @elseif(Str::contains("$currentCall->keyword", 'ABC'))
+                         style="background-color: #00C437"
+                     @endif
+                     >
+                    <div class="text-white text-center bolder" >
                         <h1 class="display-1">
                             {{ $currentCall->keyword }} - {{ $currentCall->category }}
                         </h1>
@@ -118,38 +130,27 @@
                         </h1>
                     </div>
                 </div>
-                @if($currentCall->object)
-                    <div class="row border p-4">
+                <div class="row border p-4">
                         <div class="text-white text-center">
                             <h1 class="display-3">
-                                {{ $currentCall->object ?? '' }}
+                                {{ $currentCall->object ?? '' }} {{ $currentCall->section }}
                             </h1>
                         </div>
                     </div>
-                @endif
-                @if($currentCall->section)
-                <div class="row border p-4">
-                    <div class="text-white text-center">
-                        <h1 class="display-4">
-                            {{ $currentCall->section }}
-                        </h1>
-                    </div>
-                </div>
-                @endif
                 @if($currentCall->note)
-                <div class="row border p-4">
+                    <div class="row border p-4">
                     <div class="text-white text-center">
                         <h1 class="display-4">
                             Bemerkung: </br>
-                            {{ $currentCall->note }}
+                            {{ mb_strimwidth($currentCall->note, 0, 50, '...') }}
                         </h1>
                     </div>
                 </div>
                 @endif
                 <div class="row border p-4">
                     <div class="text-white text-center">
-                        <h1 class="display-4">
-                            Alarmzeit: {{ $currentCall->alarmed_at }}
+                        <h1 class="display-6">
+                            Alarmzeit: {{ \Carbon\Carbon::parse($currentCall->alarmed_at)->format('H:i:s') }} Uhr
                         </h1>
                     </div>
                 </div>
