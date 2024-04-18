@@ -46,6 +46,6 @@ class AlarmMonitor extends Component
             $this->currentCall = $ongoingCall;
         }
 
-        dd($ongoingCall);
+        dd($ongoingCall, date('H:i:s'));
     }
 }
