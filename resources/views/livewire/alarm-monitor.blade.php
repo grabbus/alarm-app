@@ -23,10 +23,36 @@
                 </div>
             </div>
         </div>
-        <div class="col-10 bg-gray text-white border">
+        <div class="col-10 bg-gray border">
         @if(!empty($vehicles))
             @foreach($vehicles as $vehicle)
-                <div class="row border mb-3 p-4">
+                <div class="row border mb-3 mx-1 p-3
+                @if($vehicle->status == 1)
+                    bg-status-1
+                @elseif($vehicle->status == 2)
+                    bg-status-2
+                @elseif($vehicle->status == 3)
+                    bg-status-3
+                @elseif($vehicle->status == 4)
+                    bg-status-4
+                @elseif($vehicle->status == 5)
+                    bg-status-5 text-white
+                @elseif($vehicle->status == 6)
+                    bg-status-6
+                @elseif($vehicle->status == 7)
+                    bg-status-7
+                @elseif($vehicle->status == 8)
+                    bg-status-8
+                @elseif($vehicle->status == 9)
+                    bg-status-9
+                @elseif($vehicle->status == 0)
+                    bg-status-0 text-white
+                @elseif($vehicle->status == 'C')
+                    bg-status-c
+                @elseif($vehicle->status == 'J')
+                    bg-status-j
+                @endif
+                ">
                     <div class="col-1 text-center">
                         <h1 class="display-4 bolder">
                             {{ $vehicle->status }}
