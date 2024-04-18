@@ -45,7 +45,5 @@ class AlarmMonitor extends Component
             $this->dispatchBrowserEvent('newCall');
             $this->currentCall = $ongoingCall;
         }
-
-        dd($ongoingCall, date('H:i:s'));
     }
 }
