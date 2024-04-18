@@ -150,7 +150,7 @@
             <div class="col-3 bg-gray border">
                 @if(!empty($currentCall->vehicles))
                     @foreach($currentCall->vehicles as $vehicle)
-                        <div class="row border mb-3 mx-1 p-4
+                        <div class="row border mb-3 mx-1 p-3
                 @if($vehicle->status == 1)
                     bg-status-1
                 @elseif($vehicle->status == 2)
