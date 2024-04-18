@@ -26,7 +26,7 @@
         <div class="col-10 bg-gray border">
         @if(!empty($vehicles))
             @foreach($vehicles as $vehicle)
-                <div class="row border mb-3 mx-1 p-3
+                <div class="row border mb-3 mx-1 @if(count($vehicles) <= 6) p-3 @else p-2 @endif
                 @if($vehicle->status == 1)
                     bg-status-1
                 @elseif($vehicle->status == 2)
