@@ -146,6 +146,13 @@
                     </div>
                 </div>
                 @endif
+                <div class="row border p-4">
+                    <div class="text-white text-center">
+                        <h1 class="display-4">
+                            Alarmzeit: {{ $currentCall->alarmed_at }}
+                        </h1>
+                    </div>
+                </div>
             </div>
             <div class="col-3 bg-gray border">
                 @if(!empty($currentCall->vehicles))
