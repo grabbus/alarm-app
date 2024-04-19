@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-10 bg-gray border" wire:poll.25s>
+        <div class="col-10 bg-gray border">
         @if(!empty($vehicles))
             @foreach($vehicles as $vehicle)
                 <div class="row border mb-3 mx-1 @if(count($vehicles) <= 6) p-3 @else p-2 @endif
