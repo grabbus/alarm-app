@@ -3,6 +3,7 @@
         @if($call->is_closed) disabled @endif
         id="alarm"
         class="btn btn-danger btn-sm me-2 @if($call->is_closed) disabled @endif"
+        onclick="confirm('Für den Einsatz Nr. {{ $call->id }} Einsatzmittel wirklich alarmieren?') || event.stopImmediatePropagation()"
         type="button"
         wire:click="alarm({{ $call }})"
         @isset($call->dispose_at) disabled @endisset
