@@ -1,4 +1,6 @@
-<div class="container-fluid h-100">
+        setTimeout(function () {
+            window.location.reload();
+        }, 12000);<div class="container-fluid h-100">
     @if(empty($currentCall))
     <div class="row h-100 d-flex" wire:poll.10s="checkIfCallIsOngoing">
         <div class="col-2">
@@ -214,3 +216,8 @@
 {{--                </script>--}}
     @endif
 </div>
+<script>
+        setTimeout(function () {
+            window.location.reload();
+        }, 12000);
+</script>
