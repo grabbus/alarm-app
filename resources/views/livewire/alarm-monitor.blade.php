@@ -215,9 +215,9 @@
     @endif
     <script>
         <script>
+            console.log('test');
         setTimeout(function () {
             window.location.reload();
         }, 12000);
-</script>
     </script>
 </div>
