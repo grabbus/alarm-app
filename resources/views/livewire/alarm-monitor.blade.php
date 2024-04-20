@@ -214,7 +214,6 @@
 {{--                </script>--}}
     @endif
     <script>
-        <script>
             console.log('test');
         setTimeout(function () {
             window.location.reload();
