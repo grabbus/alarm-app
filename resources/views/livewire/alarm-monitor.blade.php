@@ -216,8 +216,3 @@
 {{--                </script>--}}
     @endif
 </div>
-<script>
-        setTimeout(function () {
-            window.location.reload();
-        }, 12000);
-</script>
