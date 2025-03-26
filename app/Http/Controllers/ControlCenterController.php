@@ -42,8 +42,10 @@ class ControlCenterController extends Controller
         ]);
     }
 
-    public function delete(Call $call)
+    public function delete(Call $call): \Illuminate\Http\RedirectResponse
     {
+
+
         $call->delete();
 
         return redirect()->to('/leitstelle');
@@ -51,6 +53,14 @@ class ControlCenterController extends Controller
 
     public function closeCall(Call $call): \Illuminate\Http\RedirectResponse
     {
+        $log = new CallHistory([
+            'call_id' => $call->id,
+            'message' => 'Einsatz abgeschlossen.',
+            'created_at' => now(),
+        ]);
+
+        $log->save();
+
         $call->update(['is_closed' => true]);
 
         return redirect()->to('/leitstelle');

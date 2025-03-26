@@ -34,23 +34,42 @@
             </div>
         </div>
     </div>
-    <script>
-        setTimeout(function () {
-            window.location.reload();
-        }, 12000);
+    <script type="text/javascript">
         let dme = new Audio("{{ asset('/audio/dme.mp3') }}");
+        let alarmedAt = new Date({!! json_encode($alarmedAt) !!});
+        let now = new Date();
+        let status = {!! json_encode($status) !!};
+        let pusher = new Pusher('375eedcece7cfce060da', {
+            encrypted: true,
+            cluster: 'eu'
+        });
 
-        window.addEventListener("load", (event) => {
-            let status = {!! json_encode($status) !!};
-            let alarmedAt = new Date({!! json_encode($alarmedAt) !!});
-            let now = new Date();
+        let channel = pusher.subscribe('vehicle-alarmed');
 
-            if (
-                status === 'C'
-                && (now.getMinutes() === alarmedAt.getMinutes())
-            ) {
-                dme.play();
-            }
+        channel.bind('App\\Events\\VehicleAlarmed', function(data) {
+        if (status === 'C' && (now.getMinutes() === alarmedAt.getMinutes())) {
+            dme.play();
+        }
         });
     </script>
+{{-- Old Method - no pusher useage --}}
+{{--    <script>--}}
+{{--        setTimeout(function () {--}}
+{{--            window.location.reload();--}}
+{{--        }, 12000);--}}
+{{--        let dme = new Audio("{{ asset('/audio/dme.mp3') }}");--}}
+
+{{--        window.addEventListener("load", (event) => {--}}
+{{--            let status = {!! json_encode($status) !!};--}}
+{{--            let alarmedAt = new Date({!! json_encode($alarmedAt) !!});--}}
+{{--            let now = new Date();--}}
+
+{{--            if (--}}
+{{--                status === 'C'--}}
+{{--                && (now.getMinutes() === alarmedAt.getMinutes())--}}
+{{--            ) {--}}
+{{--                dme.play();--}}
+{{--            }--}}
+{{--        });--}}
+{{--    </script>--}}
 </div>

@@ -67,7 +67,5 @@ class DispatchResources implements ShouldQueue
         $this->call->update([
             'alarmed_at' => now()
         ]);
-
-
     }
 }

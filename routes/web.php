@@ -23,9 +23,9 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/pusher', [\App\Http\Controllers\MonitorController::class, 'pusher'])
     ->name('pusher');
-Route::get('test', function () {
-    event(new App\Events\StatusLiked('Someone'));
-    return "Event has been sent!";
+Route::get('fahrzeuge/{vehicle}/alarmed', function (\App\Models\Vehicle $vehicle) {
+    event(new App\Events\VehicleAlarmed('vehicle'));
+    return "Einsatzmittel $vehicle->call_sign alamiert";
 });
 Route::get('/monitor', [\App\Http\Controllers\MonitorController::class, 'index'])
     ->name('monitor');

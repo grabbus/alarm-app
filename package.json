@@ -21,7 +21,6 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
-        "bootstrap-select": "^1.13.18",
         "jquery": "^3.7.1",
         "lodash": "^4.17.21"
     }
