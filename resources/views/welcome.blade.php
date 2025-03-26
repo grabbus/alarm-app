@@ -46,6 +46,27 @@
             </a>
         </div>
 
+        <div class="card mb-4">
+            <a href="{{ route('pusher') }}"
+               class="text-black text-decoration-none">
+                <div class="card-body">
+                    <div class="float-start">
+                        <h3 class="card-title">PUSHER</h3>
+                        <p class="card-text">
+                            Test Pusher
+                        </p>
+                    </div>
+                    <div class="float-end">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor"
+                             class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                  d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                        </svg>
+                    </div>
+                </div>
+            </a>
+        </div>
+
         @if(Auth::check())
             <div class="card mb-4">
                 <a href="{{ route('control-center.index') }}"

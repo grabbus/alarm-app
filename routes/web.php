@@ -21,6 +21,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/pusher', [\App\Http\Controllers\MonitorController::class, 'pusher'])
+    ->name('pusher');
+Route::get('test', function () {
+    event(new App\Events\StatusLiked('Someone'));
+    return "Event has been sent!";
+});
 Route::get('/monitor', [\App\Http\Controllers\MonitorController::class, 'index'])
     ->name('monitor');
 Route::get('/alarm-monitor', [\App\Http\Controllers\MonitorController::class, 'alarmMonitor'])
